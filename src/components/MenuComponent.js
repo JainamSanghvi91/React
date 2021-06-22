@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap';
 
 class Menu extends Component {
@@ -8,15 +7,17 @@ class Menu extends Component {
         super(props);
         // This state helps us to tell about the properties that are used for components
         this.state = {
-            
         };
+        console.log('Menu Component constructor is invoked');
+    }
+
+    componentDidMount() {
+      console.log('Menu Component componentDidMount is invoked');
     }
     
     //Media is used for making list of item like menu 
 
-    onDishSelect(dish) {
-      this.setState({ selectedDish: dish});
-  }
+    
 
   renderDish(dish) {
       if (dish != null)
@@ -40,7 +41,7 @@ class Menu extends Component {
           return (
             <div  className="col-12 col-md-5 m-1">
               <Card key={dish.id}
-                onClick={() => this.onDishSelect(dish)}>
+                onClick={() => this.props.onClick(dish.id)}>
                 <CardImg width="100%" src={dish.image} alt={dish.name} />
                 <CardImgOverlay>
                     <CardTitle>{dish.name}</CardTitle>
@@ -50,6 +51,8 @@ class Menu extends Component {
           );
       });
 
+      console.log('Menu Component render is invoked');
+
       return (
           <div className="container">
               <div className="row">
@@ -57,7 +60,6 @@ class Menu extends Component {
               </div>
               <div className="row">
                 <div  className="col-12 col-md-5 m-1">
-                  {this.renderDish(this.state.selectedDish)}
                 </div>
               </div>
           </div>
