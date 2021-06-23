@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem, CardBody, CardText } from "reactstrap";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
     function RenderDish({dish}) {
         if (dish != null) {
@@ -65,7 +65,7 @@ import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem, C
 
         return (
             <div className="container">
-                {/* <div className="row">
+                <div className="row">
                     <Breadcrumb>
                         <BreadcrumbItem>
                             <Link to="/menu">Menu</Link>
@@ -79,8 +79,7 @@ import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem, C
                         <h3> {props.dish.menu}</h3>
                         <hr />
                     </div>
-                </div> */}
-
+                </div>
                 <div className='row'>
                     <RenderDish dish={ props.dish } />
                     <RenderComments comments={ props.dish.comments } />
